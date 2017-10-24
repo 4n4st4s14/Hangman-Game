@@ -24,65 +24,97 @@ var livesLeft = 11;
 var rightGuessScore = 0;
 
 
-//Choose monster randomly
-let chosenMonster = monsters[Math.floor(Math.random() * monsters.length)].toLowerCase();
-console.log(chosenMonster);
+//FUNCTIONS FOR NIGHTZ-------------------------------------------
+//the game
 
-//arrays for guesses to get pushed to
-let rightGuess = [];
-let wrongGuess = [];
+function startGame() {
+  //choose random monster
+   chosenMonster = monsters[Math.floor(Math.random() * monsters.length)].toLowerCase();
+   console.log(chosenMonster);
 
-//Create underscores based on length of monster name
-let underscores = [];
+   //break down monster into letters
+   lettersInMonster = chosenMonster.split('');
 
-//DOM manipulation to fill with underscores
-let underscoresDom = document.getElementsByClassName('underscores');
-let rightGuessDom = document.getElementsByClassName('rightGuess');
+   //number of blanks
+   numBlanks = lettersInMonster.length;
 
-let generateUnderscores = () => {
-  for (let i = 0; i < chosenMonster.length; i++) {
-    underscores.push(' _ ');
-
+  //populate blanks
+  for(var i=0; i < numBlanks; i++) {
+    blanksAndRight.push(' _ ');
+    document.getElementById('monsterToGuess').innerHTML = blanksAndRight;
   }
-  return underscores;
+
+  //HTML manipulation
+  document.getElementById('monsterToGuess').innerHTML = blanksAndRight.join(' ');
+  document.getElementById('numGuesses').innerHTML = numGuesses;
+  document.getElementById('wins').innerHTML = wins;
+  document.getElementById('losses').innerHTML = losses;
+  document.getElementById('wrongGuesses').innerHTML = wrongLetters;
+
+  //logs
+
+  console.log(chosenMonster);
+  console.log(lettersInMonster);
+  console.log(numBlanks);
+  console.log(blanksAndRight);
+
 }
 
-console.log(generateUnderscores());
-//Get user's guess -one guess per letter of alphabet
-document.addEventListener('keypress', (event) => {
-  let keycode = event.keyCode;
-  /*console.log(keyCode);*/
-  let keyword = String.fromCharCode(keycode).toLowerCase();
-  console.log(keyword);
-//Check if letter guessed is in randomly chosen word- compare using indexOf
+function compareLetters(userKey) {
+  console.log('It works!');
+  //if key pressed is in random monster, then fill in index with key pressed
 
-  if (chosenMonster.indexOf(keyword) > -1) {
-    console.log(rightGuess);
-      rightGuess.push(keyword);
-       //logs letter to HTML
+  if(chosenMonster.indexOf(userKey) > -1){
+     //loop it for the number of blanksAndRight
+     for(var i = 0; i <numBlanks; i++) {
+       if (lettersInMonster[i] === userKey){
+         rightGuessScore++;
+         blanksAndRight[i] = userKey;
+         document.getElementById('monsterToGuess').innerHTML = blanksAndRight.join(' ');
+       }
+     }
+     console.log(blanksAndRight);
+  } else {
+    wrongLetters.push(userKey);
+    guessesLeft--;
+    //change HTML
+    document.getElementById('numOfGuesses').innerHTML = guessesLeft;
+    document.getElementById('wrongGuess').innerHTML = wrongLetters;
 
-      //replace underscores with the guessed right letter
-      underscores[chosenMonster.indexOf(keyword)] = keyword;
-      console.log(underscores);
-
-      underscoresDom[0].innerHTML = underscores.join(" ");
-      rightGuessDom[0].innerHTML = rightGuess.join(" ");
-
-
-
-      if(underscores.join('') == chosenMonster) {
-        alert('You Won!');
-      }
-
-  }  else {
-    wrongGuess.push(keyword);
-    console.log(wrongGuess);
+    console.log('Wrong Letters = ' + wrongLetters);
+    console.log('Guesses left ' + guessesLeft);
   }
-});
+}
 
-underscoresDom[0].innerHTML= generateUnderscores();
-//If it is, have it populate the underscore at it's index location as well as the Rigt Guess area
+function winLose() {
+  //win when number of blanks filled with right word
+  if(rightGuessCounter === numBlanks) {
+    wins++;
 
-//if it's not, have it populate in the wrong Guess area and decrease lives by 1
+    document.getElementbyId('wins').innerHTML = wins;
+    alert('You Win!');
+  } else if (guessesLeft === 0) {
+    losses--;
 
-//continue until lives = 0 or all underscores filled
+    document.getElementbyId('losses').innerHTML = losses;
+    alert('You Lose');
+  }
+}
+
+
+startGame();
+
+document.onkeyup = function(event) {
+  test=true;
+  var letterGuessed = event.key;
+  for(var i = 0; i < onceLetter.length; i++){
+    if(letterGuessed === onceLetter[i] && test === true) {
+      var spliceWord = onceLetter.splice(i,1)
+      console.log("Spliced word: " + spliceWord );
+
+      compareLetters(letterGuessed);
+      winLose();
+    }
+
+  }
+}

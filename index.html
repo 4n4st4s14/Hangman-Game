@@ -1,20 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hangman</title>
-</head>
-<body>
-  <h1>Hangman</h1>
-  <div class="container">
-  <header>
-    <h1>Hangman Game</h1>
-    <h3>Mythical Monsters from Around the World</h3>
-  </header>
-  <div> <span class="underscores"></span></div>
-  <div>Right Guesses: <span class="rightGuess"></span></div>
-  <div>Wrong Guesses: <span class="wrongGuess"></span></div>
-  <div>Guesses Left: <span class="guessesLeft"></span></div>
+	<meta charset="UTF-8">
+	<title>Hangman Game</title>
 
+	<!-- Bootstrap CDN -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi21kFfwwEAa8hDOdjZ1pLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Hangman Game</h1>
+			<p>Guess The Color</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Word to Guess</h3>
+		</div>
+		<div class="panel-body">
+			<h2 id="monsterToGuess">_ _ _ _ _ _ _</h2>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+	 	<div class="panel-body">
+	 		Wrong Guesses: <span id="wrongGuesses"></span>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			Guesses Left: <span id="numGuesses"></span>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			Win Counter: <span id="wins">0</span>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body">
+			Loss Counter:  <span id="losses">0</span>
+		</div>
+	</div>
 
 </div>
 <script type="text/javascript" src="./assets/hangman.js"></script>
