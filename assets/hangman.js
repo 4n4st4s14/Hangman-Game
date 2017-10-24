@@ -20,7 +20,7 @@ var wrongLetters = [];
 
 var wins = 0;
 var losses = 0;
-var livesLeft = 11;
+var guessesLeft = 11;
 var rightGuessScore = 0;
 
 
@@ -46,7 +46,7 @@ function startGame() {
 
   //HTML manipulation
   document.getElementById('monsterToGuess').innerHTML = blanksAndRight.join(' ');
-  document.getElementById('numGuesses').innerHTML = numGuesses;
+  document.getElementById('numGuesses').innerHTML = guessesLeft;
   document.getElementById('wins').innerHTML = wins;
   document.getElementById('losses').innerHTML = losses;
   document.getElementById('wrongGuesses').innerHTML = wrongLetters;
@@ -78,7 +78,7 @@ function compareLetters(userKey) {
     wrongLetters.push(userKey);
     guessesLeft--;
     //change HTML
-    document.getElementById('numOfGuesses').innerHTML = guessesLeft;
+    document.getElementById('numGuesses').innerHTML = guessesLeft;
     document.getElementById('wrongGuess').innerHTML = wrongLetters;
 
     console.log('Wrong Letters = ' + wrongLetters);
