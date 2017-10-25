@@ -1,9 +1,15 @@
 //VARIABLES FOR DAYZ ----------------------------------
 
 //Array of monsters
-const monsters = ['Grootslang', 'Inkanyamba', 'Ammit', 'Aswang', 'Penanggalan', 'Diao Si Gui', 'Teke Teke', 'Ittan Momen', 'Dullahan', 'Nuckelavee', 'Kelpie', 'Arachne', 'La Ciguapa', 'Yara Ma Yha Who', 'you'];
+const monsters = ['Grootslang', 'Inkanyamba', 'Ammit', 'Aswang', 'Penanggalan', 'Teke Teke', 'Ittan Momen', 'Dullahan', 'Nuckelavee', 'Kelpie', 'Arachne', 'La Ciguapa', 'Yara Ma Yha Who', ];
 
+//you can only guess each letter and the space bar once
 var onceLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+
+//array of images
+
+
+
 
 //var for chosen monster
 var chosenMonster= "";
@@ -86,13 +92,19 @@ function compareLetters(userKey) {
   }
 }
 
+function pickPic(){
+  document.getElementById('monsterPicture').src = picObject[chosenMonster];
+};
+
 function winLose() {
   //win when number of blanks filled with right word
   if(rightGuessScore === numBlanks) {
     winCount++;
 
     document.getElementById('wins').innerHTML = winCount;
-    alert('You Win!');
+    // alert('You Win!');
+    // alert(chosenMonster);
+    pickPic()
   } else if (guessesLeft === 0) {
     losses--;
 
@@ -101,9 +113,43 @@ function winLose() {
   }
 }
 
+//image array setup
 
+var picObject = {
+        "grootslang" : "./assets/images/grootslang.jpg",
+        "inkanyamba" : "./assets/images/inkanyamba.jpg",
+        "ammit" :  "./assets/images/ammit.jpg",
+        "aswang" : "./assets/images/aswang.jpg",
+        "penanggalan": "./assets/images/penanggalan.jpg",
+        "teke teke":  "./assets/images/teketeke.jpg",
+        "ittan momen": "./assets/images/ittanMomen.jpg",
+        "dullahan": "./assets/images/dullahan.jpg",
+        "nuckelavee":"./assets/images/nuckelavee.jpg",
+        "kelpie": "./assets/images/Kelpie.jpg",
+        "arachne": "./assets/images/arachne.jpg",
+        "la ciguapa": "./assets/images/laciguapa.jpg",
+        "yara ma yha who": "./assets/images/yaramayhawho.jpg",
+}
+//code to pick corresponding picture to monster
+// var monsterPic = Object.values(picObject);
+
+//console.log(Object.values(picObject));
+
+    //  function pickPic() {
+    //    if(chosenMonster == Object.keys(picObject)){
+    //      document.getElementById('monsterPicture').src = picObject[chosenMonster];
+    //      console.log(document.getElementById('monsterPicture'))
+    //      console.log('hi')
+    //    }
+    //  };
+
+
+// pickPic();``
+//start the game
 startGame();
 
+
+//player initialize
 document.onkeyup = function(event) {
   test=true;
   var letterGuessed = event.key;
