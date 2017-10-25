@@ -3,7 +3,7 @@
 //Array of monsters
 const monsters = ['Grootslang', 'Inkanyamba', 'Ammit', 'Aswang', 'Penanggalan', 'Diao Si Gui', 'Teke Teke', 'Ittan Momen', 'Dullahan', 'Nuckelavee', 'Kelpie', 'Arachne', 'La Ciguapa', 'Yara Ma Yha Who', 'you'];
 
-var onceLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
+var onceLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
 
 //var for chosen monster
 var chosenMonster= "";
@@ -18,7 +18,7 @@ var wrongLetters = [];
 
 //scorers
 
-var wins = 0;
+var winCount = 0;
 var losses = 0;
 var guessesLeft = 11;
 var rightGuessScore = 0;
@@ -47,7 +47,7 @@ function startGame() {
   //HTML manipulation
   document.getElementById('monsterToGuess').innerHTML = blanksAndRight.join(' ');
   document.getElementById('numGuesses').innerHTML = guessesLeft;
-  document.getElementById('wins').innerHTML = wins;
+  document.getElementById('wins').innerHTML = winCount;
   document.getElementById('losses').innerHTML = losses;
   document.getElementById('wrongGuesses').innerHTML = wrongLetters;
 
@@ -79,7 +79,7 @@ function compareLetters(userKey) {
     guessesLeft--;
     //change HTML
     document.getElementById('numGuesses').innerHTML = guessesLeft;
-    document.getElementById('wrongGuess').innerHTML = wrongLetters;
+    document.getElementById('wrongGuesses').innerHTML = wrongLetters;
 
     console.log('Wrong Letters = ' + wrongLetters);
     console.log('Guesses left ' + guessesLeft);
@@ -88,15 +88,15 @@ function compareLetters(userKey) {
 
 function winLose() {
   //win when number of blanks filled with right word
-  if(rightGuessCounter === numBlanks) {
-    wins++;
+  if(rightGuessScore === numBlanks) {
+    winCount++;
 
-    document.getElementbyId('wins').innerHTML = wins;
+    document.getElementById('wins').innerHTML = winCount;
     alert('You Win!');
   } else if (guessesLeft === 0) {
     losses--;
 
-    document.getElementbyId('losses').innerHTML = losses;
+    document.getElementById('losses').innerHTML = losses;
     alert('You Lose');
   }
 }
