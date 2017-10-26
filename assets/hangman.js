@@ -155,7 +155,7 @@ var picObject = {
 var messageObject = {
   "grootslang" : "<h3>Grootslang</h3><br><strong>South Africa</strong><br> Massive serpentine elephant that plagues a deep cave in Richtersveld.",
   "inkanyamba" : "<h3>Inkanyamba</h3><br><strong>South Africa</strong><br> Gigantic, winged ell with a voracious appetite that is associated with brutal storms.",
-  "ammit" :  "<h3>Ammit</h3><br><strong>Egypt</strong><br>Goddess with a lion, hippo, and crocodile body. She eats the impure hearts of the souls of the deat, condemning them to be restless forever.",
+  "ammit" :  "<h3>Ammit</h3><br><strong>Egypt</strong><br>Goddess with a lion, hippo, and crocodile body. She eats the impure hearts of the souls of the dea, condemning them to be restless forever.",
   "aswang" : "<h3><Aswang></h3><br><strong>Philippines</strong><br>Shape-shifting monster that devours unborn babies. To spot one in the daytime, look for your upside-down reflection in their eyes.",
   "penanggalan": "<h3>Penanggalan</h3><br><strong>Malaysia</strong><br>Detached female head that flies through the night, organs dangling, to search for blood. She reattaches to the rest of her body during the day.",
   "teke teke":  "<h3>Teke Teke</h3><br><strong>Japan</strong><br>Ghost of a young girl who was cut in half by a train. She drags her torso around, seeking to dismember others with a scythe.",
