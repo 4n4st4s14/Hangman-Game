@@ -33,7 +33,7 @@ h1 {
   margin: 0 auto;
   border: 2px solid black;
   height: 150px;
-  width: 80%;
+  width: 40%;
 }
 
 .rightGuess {
@@ -42,7 +42,7 @@ h1 {
   margin: 0 auto;
   border: 2px solid black;
   height: 150px;
-  width: 80%;
+  width: 40%;
 }
 
 .wrongGuess {
@@ -51,5 +51,5 @@ h1 {
   margin: 0 auto;
   border: 2px solid black;
   height: 150px;
-  width: 80%;
+  width: 40%;
 }

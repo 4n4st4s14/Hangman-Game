@@ -31,6 +31,24 @@ var rightGuessScore = 0;
 
 
 //FUNCTIONS FOR NIGHTZ-------------------------------------------
+//reset function
+function reset(){
+   chosenMonster = monsters[Math.floor(Math.random()* monsters.length)].toLowerCase();
+
+   lettersInMonster = chosenMonster.split('');
+
+   numBlanks = lettersInMonster.length;
+
+   letterGuessed = 0;
+   rightGuessScore = 0;
+   guessesLeft = 11;
+   wrongLetters = [];
+   blanksAndRight = [];
+   onceLetter = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+test=false;
+  startGame();
+}
+
 //the game
 
 function startGame() {
@@ -110,11 +128,13 @@ function winLose() {
     // alert(chosenMonster);
     pickPic()
     pickMessage()
+    reset()
   } else if (guessesLeft === 0) {
     losses--;
 
     document.getElementById('losses').innerHTML = losses;
     alert('You Lose');
+    reset()
   }
 }
 
@@ -154,7 +174,7 @@ var picObject = {
 //messages Object
 var messageObject = {
   "grootslang" : "<h3>Grootslang</h3><br><strong>South Africa</strong><br> Massive serpentine elephant that plagues a deep cave in Richtersveld.",
-  "inkanyamba" : "<h3>Inkanyamba</h3><br><strong>South Africa</strong><br> Gigantic, winged ell with a voracious appetite that is associated with brutal storms.",
+  "inkanyamba" : "<h3>Inkanyamba</h3><br><strong>South Africa</strong><br> Gigantic, winged eel with a voracious appetite that is associated with brutal storms.",
   "ammit" :  "<h3>Ammit</h3><br><strong>Egypt</strong><br>Goddess with a lion, hippo, and crocodile body. She eats the impure hearts of the souls of the dea, condemning them to be restless forever.",
   "aswang" : "<h3><Aswang></h3><br><strong>Philippines</strong><br>Shape-shifting monster that devours unborn babies. To spot one in the daytime, look for your upside-down reflection in their eyes.",
   "penanggalan": "<h3>Penanggalan</h3><br><strong>Malaysia</strong><br>Detached female head that flies through the night, organs dangling, to search for blood. She reattaches to the rest of her body during the day.",
