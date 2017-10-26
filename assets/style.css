@@ -1,6 +1,6 @@
 body {
   background-image: url(./images/monster.jpg);
-  background-size: 1280px 720px;
+  /*background-size: 1280px 720px;*/
 }
 
 header {
@@ -10,6 +10,12 @@ header {
  border: 2px solid black;
  height: 150px;
  width: 80%;
+}
+
+#monsterPicture {
+  float: left;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .underscores {
