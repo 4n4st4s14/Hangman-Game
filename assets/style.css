@@ -27,6 +27,11 @@ h1 {
   margin: 5px;
 }
 
+.monsterPanel {
+  background: transparent;
+  color: #fff;
+}
+
 .underscores {
   font-size: 20px;
   text-align: center;
